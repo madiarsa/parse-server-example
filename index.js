@@ -3,7 +3,8 @@
 
 var express = require('express');
 var ParseServer = require('parse-server').ParseServer;
-var SimpleSendGridAdapter = require('parse-server-sendgrid-adapter');
+//this adapter is not ready yet
+//var SimpleSendGridAdapter = require('parse-server-sendgrid-adapter');
  
 var databaseUri = process.env.DATABASE_URI || process.env.MONGOLAB_URI
 
@@ -16,11 +17,15 @@ var api = new ParseServer({
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
   appId: process.env.APP_ID || 'myAppId',
   masterKey: process.env.MASTER_KEY || 'myMasterKey',
-  emailAdapter: SimpleSendGridAdapter({
-    apiKey: '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',
-    fromAddress: ‘madiarsa@gmail.com’,
-  })
-});
+  verifyUserEmails: true,
+  emailAdapter: {
+    module: 'parse-server-simple-mailgun-adapter',
+    options: {
+      fromAddress: 'no-reply@example.com',
+      domain: 'example.com',
+      apiKey: 'key-d59b1d9b0893f06a168adc94d8c2d5d0',
+    }
+  });
 // Client-keys like the javascript key or the .NET key are not necessary with parse-server
 // If you wish you require them, you can set them as options in the initialization above:
 // javascriptKey, restAPIKey, dotNetKey, clientKey
