@@ -18,6 +18,8 @@ var api = new ParseServer({
   appId: process.env.APP_ID || 'myAppId',
   masterKey: process.env.MASTER_KEY || 'myMasterKey',
   serverURL: process.env.SERVER_URL,
+  publicServerURL: process.env.SERVER_URL,
+  appName: 'JustTy App',
   verifyUserEmails: true,
   emailAdapter: {
     module: 'parse-server-simple-mailgun-adapter',
