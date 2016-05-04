@@ -18,7 +18,7 @@ var api = new ParseServer({
   masterKey: process.env.MASTER_KEY || 'myMasterKey',
   emailAdapter: SimpleSendGridAdapter({
     apiKey: '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',
-    fromAddress: ‘madiarsa@gmail.com’
+    fromAddress: ‘madiarsa@gmail.com’,
   })
 });
 // Client-keys like the javascript key or the .NET key are not necessary with parse-server
