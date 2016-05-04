@@ -23,8 +23,9 @@ var api = new ParseServer({
     options: {
       fromAddress: 'no-reply@example.com',
       domain: 'example.com',
-      apiKey: 'key-d59b1d9b0893f06a168adc94d8c2d5d0',
+      apiKey: 'key-d59b1d9b0893f06a168adc94d8c2d5d0'
     }
+  }
   });
 // Client-keys like the javascript key or the .NET key are not necessary with parse-server
 // If you wish you require them, you can set them as options in the initialization above:
